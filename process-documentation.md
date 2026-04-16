@@ -1,5 +1,11 @@
 # Process Documentation:
 
+## Overview
+
+This document establishes a standardised approach for all contributors committing and working our codebase.
+
+Its purpose is to maintain consistency, reduce defects, and ensure confidence in each release; whilst providing stakeholders with a clear, shared framework.
+
 ## Commit Standards:
 
 We follow the **Conventional Commits** convention. This helps in generating automated changelogs and makes the history readable.
@@ -27,3 +33,6 @@ Use these prefixes in your commit messages to categorise the changes you are mak
 `<type>(<scope>): <description>`
 *Example:* `feat(nav): add mobile hamburger menu`
 
+---
+**Contributors:** Helen Goatly & Moses Sangobiyi  
+**Date:** April 2026
