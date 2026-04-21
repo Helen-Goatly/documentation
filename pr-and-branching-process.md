@@ -70,14 +70,14 @@ The goal is to keep delivery consistent, review cycles predictable, and QA hando
 ### 6.2 Front-End and UI
 
 - Mobile-first implementation, tested at `375px` (iPhone SE) minimum.
-- WCAG 2.1 AA accessibility compliance, including contrast ratio, alt text, and keyboard navigation.
+- WCAG 2.2 AA accessibility compliance, including contrast ratio, alt text, and keyboard navigation.
 - Cake Box brand standards are followed for typography, colours, and spacing (per RAD Google Drive guidelines).
 - No layout shift on page load (CLS), and images include explicit `width` and `height` attributes.
 
 ### 6.3 Performance
 
 - No third-party scripts are added without Cake Box sign-off.
-- Images use WebP format where possible, with a maximum size of `200kb` per image.
+- Images use WebP format where possible.
 
 ### 6.4 Integration
 
