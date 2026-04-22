@@ -32,14 +32,44 @@ The goal is to keep delivery consistent, review cycles predictable, and QA hando
 - **3:** Raise and merge **PR Type 1** from feature branch into `staging` after review.
 - **4:** Raise and merge **PR Type 2** from `staging` into `main` after QA sign-off.
 
-## 5 PR Workflow
+## 5 Commit Standards
 
-### 5.1 PR Types
+We follow the **Conventional Commits** convention. This helps generate automated changelogs and keeps commit history readable.
+
+Reference: [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/)
+
+### 5.1 Types
+
+Use these prefixes in your commit messages to categorise changes.
+
+| Type | Purpose | Example |
+| :--- | :--- | :--- |
+| **feat** | A new feature or functionality. | `feat(pdp): add product image zoom` |
+| **fix** | A bug fix. | `fix(cart): resolve quantity update error` |
+| **docs** | Documentation only changes. | `docs: update branching strategy guide` |
+| **style** | Formatting and UI polish (no logic changes). | `style: fix button alignment on mobile` |
+| **refactor** | Code changes that neither fix a bug nor add a feature. | `refactor: clean up liquid loop logic` |
+| **perf** | A code change that improves performance. | `perf: lazy load collection images` |
+| **test** | Adding missing tests or correcting existing ones. | `test: add checkout flow validation` |
+| **build** | Changes to build tools or external dependencies. | `build: update shopify-cli version` |
+| **ci** | Changes to CI configuration files and scripts. | `ci: fix github action syntax` |
+| **chore** | Routine tasks (updating `.gitignore`, housekeeping). | `chore: remove unused assets folder` |
+| **revert** | Undoing a previous commit. | `revert: feat: add experimental filter` |
+
+### 5.2 Format
+
+`<type>(<scope>): <description>`
+
+**Example:** `feat(nav): add mobile hamburger menu`
+
+## 6 PR Workflow
+
+### 6.1 PR Types
 
 - **PR Type 1 (Feature PR):** `feature/<ticket-id>-<desc>` -> `staging`
 - **PR Type 2 (Release PR):** `staging` -> `main`
 
-### 5.2 Review Model
+### 6.2 Review Model
 
 - **Feature PR review:** normal code review by reviewers.
 - **QA validation:** completed on `staging` after Feature PR merge.
@@ -51,15 +81,15 @@ The goal is to keep delivery consistent, review cycles predictable, and QA hando
 | 2 | Developer completes work and runs local checks: lint, build, and basic smoke test. | Developer | Before PR raised |
 | 3 | Developer raises **PR Type 1 (Feature PR)** to `staging` with: JIRA ticket link, change description, screenshots or short Loom (for UI changes), and reviewer test steps. | Developer | On completion |
 | 4 | PR assigned to developer reviewer. | Cake Box | Within 2 hours of PR raised |
-| 5 | Reviewer validates code against PR checklist (Section 6), then approves or requests changes with clear comments. | Reviewer | Within 1 business day |
+| 5 | Reviewer validates code against PR checklist (Section 7), then approves or requests changes with clear comments. | Reviewer | Within 1 business day |
 | 5i | Developer addresses all requested changes and re-requests review. | Developer | Within 1 business day |
 | 6 | Reviewer approves and developer merges Feature PR to `staging`. | Developer | Post-approval |
 | 7 | QA validates changes on `staging`, logs defects if found, and provides sign-off or marks as failed with issues for rework. | QA | Within 1 business day of merge |
 | 8 | After QA sign-off, release owner raises **PR Type 2 (Release PR)** from `staging` to `main`, then completes release review and merge. | Release Owner | As scheduled release window |
 
-## 6 PR Review Criteria
+## 7 PR Review Criteria
 
-### 6.1 Code Quality
+### 7.1 Code Quality
 
 - Code follows agreed naming conventions (NextJS/Hydrogen standards).
 - No unused variables, debug `console.log` statements, or hardcoded credentials.
@@ -67,30 +97,30 @@ The goal is to keep delivery consistent, review cycles predictable, and QA hando
 - Error handling is in place for API calls, including third-party integrations (for example: Onestock and WorldPay).
 - Key errors/events are logged with enough context for debugging
 
-### 6.2 Front-End and UI
+### 7.2 Front-End and UI
 
 - Mobile-first implementation, tested at `375px` (iPhone SE) minimum.
 - WCAG 2.2 AA accessibility compliance, including contrast ratio, alt text, and keyboard navigation.
 - Cake Box brand standards are followed for typography, colours, and spacing (per RAD Google Drive guidelines).
 - No layout shift on page load (CLS), and images include explicit `width` and `height` attributes.
 
-### 6.3 Performance
+### 7.3 Performance
 
 - No third-party scripts are added without Cake Box sign-off.
 - Images use WebP format where possible.
 
-### 6.4 Integration
+### 7.4 Integration
 
 - Dependencies/config: all env vars or package changes should be documented
 - API calls use agreed Onestock endpoints and payload schema.
 - Payment integration (Worldpay/Cybersource or Ryftpay) follows the agreed specification.
 
-### 6.5 Testing
+### 7.5 Testing
 
 - Acceptance criteria from the JIRA ticket are explicitly addressed.
 - Edge cases are considered and clearly noted in the PR description.
 
-## 7 PR Submission Checklist
+## 8 PR Submission Checklist
 
 Before requesting review, ensure:
 
@@ -102,5 +132,5 @@ Before requesting review, ensure:
 
 ---
 
-**Contributors:** Helen Goatly & Moses Sangobiyi  
+**Contributors:** Egg Free Cake Box 
 **Date:** April 2026
