@@ -95,7 +95,7 @@ Use these prefixes in your commit messages to categorise changes.
 - Semantic HTML elements are used where appropriate (`header`, `nav`, `main`, `section`, `article`, `button`, etc.).
 - No unused variables, debug `console.log` statements, or hardcoded credentials.
 - DRY principle is applied with no obvious code duplication.
-- Error handling is in place for API calls, including third-party integrations (for example: Onestock and WorldPay).
+- Error handling is in place for API calls, including third-party integrations (for example: Onestock).
 - Key errors/events are logged with enough context for debugging.
 - Key UI elements include stable, unique identifiers (for example, dedicated class names or `data-*` attributes) to keep implementation clean, maintainable, and reliable across releases.
 
@@ -115,7 +115,6 @@ Use these prefixes in your commit messages to categorise changes.
 
 - Dependencies/config: all env vars or package changes should be documented
 - API calls use agreed Onestock endpoints and payload schema.
-- Payment integration (Worldpay/Cybersource or Ryftpay) follows the agreed specification.
 
 ### 7.5 Testing
 
