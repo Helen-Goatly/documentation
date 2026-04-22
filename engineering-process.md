@@ -71,31 +71,33 @@ Use these prefixes in your commit messages to categorise changes.
 
 ### 6.2 Review Model
 
-- **Feature PR review:** normal code review by reviewers.
+- **Feature PR review (PR Type 1):** carried out by RAD internally for faster cycle time.
 - **QA validation:** completed on `staging` after Feature PR merge.
-- **Release PR review:** release review and merge by release owner.
+- **Release PR review (PR Type 2):** carried out by Cake Box as the final sense check before merge.
 
 | Step | Action | Owner | Expected Timeframe |
 | :--- | :--- | :--- | :--- |
 | 1 | Developer creates feature branch from `staging`, using correct naming format (`feature/<ticket-id>-<desc>`). | Developer | Before coding starts |
 | 2 | Developer completes work and runs local checks: lint, build, and basic smoke test. | Developer | Before PR raised |
 | 3 | Developer raises **PR Type 1 (Feature PR)** to `staging` with: JIRA ticket link, change description, screenshots or short Loom (for UI changes), and reviewer test steps. | Developer | On completion |
-| 4 | PR assigned to developer reviewer. | Cake Box | Within 2 hours of PR raised |
+| 4 | PR assigned to RAD reviewer. | RAD | Within 2 hours of PR raised |
 | 5 | Reviewer validates code against PR checklist (Section 7), then approves or requests changes with clear comments. | Reviewer | Within 1 business day |
 | 5i | Developer addresses all requested changes and re-requests review. | Developer | Within 1 business day |
 | 6 | Reviewer approves and developer merges Feature PR to `staging`. | Developer | Post-approval |
 | 7 | QA validates changes on `staging`, logs defects if found, and provides sign-off or marks as failed with issues for rework. | QA | Within 1 business day of merge |
-| 8 | After QA sign-off, release owner raises **PR Type 2 (Release PR)** from `staging` to `main`, then completes release review and merge. | Release Owner | As scheduled release window |
+| 8 | After QA sign-off, Cake Box raises **PR Type 2 (Release PR)** from `staging` to `main`, then completes release review and merge. | Cake Box | As scheduled release window |
 
 ## 7 PR Review Criteria
 
 ### 7.1 Code Quality
 
 - Code follows agreed naming conventions (NextJS/Hydrogen standards).
+- Semantic HTML elements are used where appropriate (`header`, `nav`, `main`, `section`, `article`, `button`, etc.).
 - No unused variables, debug `console.log` statements, or hardcoded credentials.
 - DRY principle is applied with no obvious code duplication.
 - Error handling is in place for API calls, including third-party integrations (for example: Onestock and WorldPay).
-- Key errors/events are logged with enough context for debugging
+- Key errors/events are logged with enough context for debugging.
+- Key UI elements include stable, unique identifiers (for example, dedicated class names or `data-*` attributes) to keep implementation clean, maintainable, and reliable across releases.
 
 ### 7.2 Front-End and UI
 
